@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSender"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/tilMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMessage"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        android:layout_marginBottom="@dimen/dimen_35dp"
+        app:boxCornerRadiusBottomEnd="@dimen/radius"
+        app:boxCornerRadiusBottomStart="@dimen/radius"
+        app:boxCornerRadiusTopEnd="@dimen/radius"
+        app:boxCornerRadiusTopStart="@dimen/radius"
+        app:boxStrokeWidth="@dimen/dimen_1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/myriad_geo"
+            android:maxLines="5"
+            android:scrollbars="vertical"
+            android:textSize="@dimen/normal_text_size" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ibSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_send_button"
+        app:layout_constraintBottom_toBottomOf="@+id/tilMessage"
+        app:layout_constraintEnd_toEndOf="@+id/tilMessage"
+        app:layout_constraintTop_toTopOf="@+id/tilMessage" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

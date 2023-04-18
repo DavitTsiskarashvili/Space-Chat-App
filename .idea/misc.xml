@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/tv_radius.xml" value="0.1" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/tv_radius_received.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/font/myriad_geo.xml" value="0.18518518518518517" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_bottom.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_first.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_second.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_top.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/layout_bottom_item.xml" value="0.6666666666666666" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/layout_top.xml" value="0.6" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
