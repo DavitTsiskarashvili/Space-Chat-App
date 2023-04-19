@@ -12,7 +12,9 @@
         android:id="@+id/swDayNight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end" />
+        android:layout_gravity="end"
+        android:thumb="@drawable/ic_toggle_day"
+        app:track="@drawable/ic_toggle_track_day"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/topFragment"
