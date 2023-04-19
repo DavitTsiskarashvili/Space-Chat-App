@@ -11,12 +11,11 @@ import androidx.viewbinding.ViewBinding
 
 typealias Inflater<T> = (inflater: LayoutInflater, view: ViewGroup?, attach: Boolean) -> T
 
-abstract class BaseFragment<VB : ViewBinding>(
-    private var inflater: Inflater<VB>
-) : Fragment() {
+abstract class BaseFragment<VB : ViewBinding>() : Fragment() {
 
     private var _binding: VB? = null
     private val binding get() = _binding!!
+    abstract fun inflate(): Inflater<VB>
 
 
     override fun onCreateView(
@@ -24,21 +23,18 @@ abstract class BaseFragment<VB : ViewBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = this.inflater.invoke(inflater, container, false)
+        _binding = this.inflate().invoke(inflater, container, false)
         return binding.root
-
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
-
 
 }

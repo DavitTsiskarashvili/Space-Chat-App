@@ -17,7 +17,7 @@
 
     <!-- If dark mode is on -->
     <style name="screen">
-        <item name="android:background">@color/background_dark</item>
+        <item name="android:background">@color/dark_violet</item>
     </style>
 
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/dimen_110dp"
@@ -35,11 +36,10 @@
         android:layout_marginTop="@dimen/dimen_4dp"
         android:layout_marginEnd="@dimen/dimen_20dp"
         android:background="@drawable/tv_radius_sent"
-        android:fontFamily="@font/myriad_geo"
         android:paddingHorizontal="@dimen/dimen_18dp"
         android:paddingVertical="@dimen/dimen_7dp"
-        android:text="sadada"
-        android:textSize="@dimen/normal_text_size"
+        tools:text="sadada"
+        style="@style/normalMyriadGeo_Regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,12 +47,10 @@
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dimen_30dp"
         android:layout_marginTop="@dimen/dimen_4dp"
-        android:fontFamily="@font/myriad_geo"
-        android:text="მარ 14, 16:05"
-        android:textColor="@color/date_color"
-        android:textSize="@dimen/small_text_size"
+        android:layout_marginEnd="@dimen/dimen_30dp"
+        tools:text="მარ 14, 16:05"
+        style="@style/smallMyriadGeo_Regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvMessage" />

@@ -17,7 +17,7 @@
 
     <!-- If light mode is on (default) -->
     <style name="screen">
-        <item name="android:background">@color/background_light</item>
+        <item name="android:background">@color/light_grey</item>
     </style>
 
 
