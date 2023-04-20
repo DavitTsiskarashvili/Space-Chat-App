@@ -13,4 +13,12 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <!-- If light mode is on (default) -->
+    <style name="day_mode">
+        <item name="background">@color/light_grey</item>
+    </style>
+
+
 </resources>
