@@ -1,11 +1,10 @@
-package com.example.spacechatapp.presentation.ui.baseFragment
+package com.example.spacechatapp.common
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 
 
@@ -16,7 +15,7 @@ abstract class BaseFragment<VB : ViewBinding>() : Fragment() {
     private var _binding: VB? = null
     private val binding get() = _binding!!
     abstract fun inflate(): Inflater<VB>
-
+    abstract fun onBind()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +29,7 @@ abstract class BaseFragment<VB : ViewBinding>() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        onBind()
     }
 
     override fun onDestroy() {

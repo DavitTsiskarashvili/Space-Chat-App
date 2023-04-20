@@ -16,8 +16,8 @@
 
 
     <!-- If light mode is on (default) -->
-    <style name="screen">
-        <item name="android:background">@color/light_grey</item>
+    <style name="day_mode">
+        <item name="background">@color/light_grey</item>
     </style>
 
 

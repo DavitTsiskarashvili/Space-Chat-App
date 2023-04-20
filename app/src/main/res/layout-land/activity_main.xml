@@ -2,12 +2,20 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/screen"
+    style="@style/night_mode"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swDayNight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/dimen_12_dp"
+        android:thumb="@drawable/ic_toggle_day"
+        app:track="@drawable/bkg_track_day"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/topFragment"
@@ -17,7 +25,7 @@
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="@dimen/dimen_6_dp"
         app:dividerColor="@color/yellow" />
 
 

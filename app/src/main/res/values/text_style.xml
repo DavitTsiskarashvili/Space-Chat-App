@@ -3,13 +3,13 @@
     
     <style name="normalMyriadGeo_Regular" >
         <item name="fontFamily">@font/myriad_geo</item>
-        <item name="android:textSize">@dimen/dimen_14sp</item>
+        <item name="android:textSize">@dimen/dimen_14_sp</item>
         <item name="color">@color/dark_grey</item>
     </style>
 
     <style name="smallMyriadGeo_Regular" >
         <item name="fontFamily">@font/myriad_geo</item>
-        <item name="android:textSize">@dimen/dimen_8sp</item>
+        <item name="android:textSize">@dimen/dimen_8_sp</item>
         <item name="color">@color/dark_grey</item>
     </style>
 
