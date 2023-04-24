@@ -15,5 +15,8 @@
     <color name="dark_grey">#191919</color>
     <color name="grey">#C7C7C7</color>
     <color name="yellow">#F7CE7F</color>
+    <color name="gainsboro">#DADADA</color>
+    <color name="transparent">#00FF0000</color>
+    <color name="background">#FFFFFFFF</color>
 
 </resources>

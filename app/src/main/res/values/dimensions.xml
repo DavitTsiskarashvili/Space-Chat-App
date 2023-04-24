@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="editTextAspectRatio">1.5dp</dimen>
 
-    <dimen name="dimen_14_sp">14sp</dimen>
+    <dimen name="dimen_4_sp">4sp</dimen>
     <dimen name="dimen_8_sp">8sp</dimen>
+    <dimen name="dimen_14_sp">14sp</dimen>
 
     <dimen name="dimen_0_dp">0dp</dimen>
     <dimen name="dimen_1_dp">1dp</dimen>
     <dimen name="dimen_2_dp">2dp</dimen>
+    <dimen name="dimen_3_dp">3dp</dimen>
     <dimen name="dimen_4_dp">4dp</dimen>
+    <dimen name="dimen_5_dp">5dp</dimen>
     <dimen name="dimen_6_dp">6dp</dimen>
     <dimen name="dimen_7_dp">7dp</dimen>
     <dimen name="dimen_10_dp">10dp</dimen>
@@ -23,6 +27,10 @@
     <dimen name="dimen_30_dp">30dp</dimen>
     <dimen name="dimen_35_dp">35dp</dimen>
     <dimen name="dimen_50_dp">50dp</dimen>
+    <dimen name="dimen_56_dp">56dp</dimen>
+    <dimen name="dimen_60_dp">60dp</dimen>
+    <dimen name="dimen_80_dp">80dp</dimen>
     <dimen name="dimen_110_dp">110dp</dimen>
+    <dimen name="dimen_114_dp">114dp</dimen>
 
 </resources>

@@ -4,31 +4,46 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/bkg_day_night.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/bkg_track_day.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/bkg_track_night.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/custom_edittext.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_day_sun.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_day_sun_list.xml" value="0.1" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_dayicon.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_daynightbackground.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_divider.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_moon.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_night_moon.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_night_moon_list.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_nighticon.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_received_big_bubble.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_received_small_bubble.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_scroll_thumb.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_scroll_track.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_send_big_bubble.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_send_button.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_send_small_bubble.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_sun_list.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_switch.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_thumb.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_toggle_day.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_toggle_day_list.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_toggle_night.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_toggle_night_list.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_toggle_track_day.xml" value="0.1085" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/ic_track.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/tv_radius.xml" value="0.1" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/tv_radius_received.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/drawable/tv_radius_sent.xml" value="0.1085" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/font/myriad_geo.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout-land/activity_main.xml" value="0.19953325554259044" />
-        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_bottom.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/activity_main.xml" value="0.19021134593993325" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_bottom.xml" value="0.22" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_first.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_second.xml" value="0.14130434782608695" />
-        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_top.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/fragment_top.xml" value="0.22" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/layout_bottom_item.xml" value="0.4763231197771588" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/layout_top.xml" value="0.6" />
         <entry key="..\:/Users/Davit/SpaceChatApp/app/src/main/res/layout/layout_top_item.xml" value="0.22" />

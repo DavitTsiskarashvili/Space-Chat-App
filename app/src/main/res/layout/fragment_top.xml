@@ -11,52 +11,83 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0_dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/tilMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/layout_top_item" />
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilMessage"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginHorizontal="@dimen/dimen_16_dp"
-        android:layout_marginBottom="@dimen/dimen_35_dp"
-        app:boxCornerRadiusBottomEnd="@dimen/dimen_28_dp"
-        app:boxCornerRadiusBottomStart="@dimen/dimen_28_dp"
-        app:boxCornerRadiusTopEnd="@dimen/dimen_28_dp"
-        app:boxCornerRadiusTopStart="@dimen/dimen_28_dp"
-        app:boxStrokeWidth="@dimen/dimen_1_dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginBottom="@dimen/dimen_30_dp"
+        android:paddingEnd="@dimen/dimen_12_dp"
+        android:paddingStart="@dimen/dimen_12_dp"
+        android:background="@drawable/custom_edittext"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etMessage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dimen_56_dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:layout_gravity="center"
             style="@style/normalMyriadGeo_Regular"
+            android:hint="@string/editText_hint"
+            android:textColorHint="@color/grey"
             android:maxLines="5"
-            android:scrollbars="vertical" />
+            android:scrollbars="vertical"
+            android:fadeScrollbars="false"
+            android:lineSpacingExtra="@dimen/dimen_4_sp"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbarThumbVertical="@drawable/ic_scroll_thumb"
+            android:scrollbarTrackVertical="@drawable/ic_scroll_track"
+            android:layout_marginStart="@dimen/dimen_22_dp"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/ibSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dimen_12_dp"
+            android:layout_marginHorizontal="@dimen/dimen_12_dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/ic_send_button"
+            app:layout_constraintDimensionRatio="1" />
 
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/ibSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:paddingTop="@dimen/dimen_4_dp"
-        android:paddingEnd="@dimen/dimen_14_dp"
-        android:src="@drawable/ic_send_button"
-        app:layout_constraintBottom_toBottomOf="@+id/tilMessage"
-        app:layout_constraintEnd_toEndOf="@+id/tilMessage"
-        app:layout_constraintTop_toTopOf="@+id/tilMessage" />
-
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/tilMessage"-->
+    <!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginHorizontal="@dimen/dimen_16_dp"-->
+    <!--        android:layout_marginBottom="@dimen/dimen_35_dp"-->
+    <!--        app:boxCornerRadiusBottomEnd="@dimen/dimen_28_dp"-->
+    <!--        app:boxCornerRadiusBottomStart="@dimen/dimen_28_dp"-->
+    <!--        app:boxCornerRadiusTopEnd="@dimen/dimen_28_dp"-->
+    <!--        app:boxCornerRadiusTopStart="@dimen/dimen_28_dp"-->
+    <!--        app:boxStrokeWidth="@dimen/dimen_1_dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent">-->
+
+
+    <!--        <com.google.android.material.textfield.TextInputEditText-->
+    <!--            android:id="@+id/etMessage"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            style="@style/normalMyriadGeo_Regular"-->
+    <!--            android:maxLines="5"-->
+    <!--            android:scrollbars="vertical" />-->
+
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+

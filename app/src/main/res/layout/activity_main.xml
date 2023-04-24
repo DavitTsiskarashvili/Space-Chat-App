@@ -2,7 +2,6 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/light_grey"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -14,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginEnd="@dimen/dimen_12_dp"
-        android:thumb="@drawable/ic_toggle_day"
-        app:track="@drawable/bkg_track_day"/>
+        android:thumb="@drawable/ic_toggle"
+        app:track="@drawable/ic_track" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/topFragment"
@@ -27,7 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_6_dp"
         app:dividerColor="@color/yellow" />
-
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bottomFragment"

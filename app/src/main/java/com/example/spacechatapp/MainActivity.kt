@@ -32,14 +32,13 @@ class MainActivity : AppCompatActivity() {
         binding.swDayNight.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                this.setTheme(R.style.night_mode)
-                binding.swDayNight.thumbDrawable = this.getDrawable(R.drawable.ic_toggle_night)
-                binding.swDayNight.trackDrawable = this.getDrawable(R.drawable.bkg_track_night)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                this.setTheme(R.style.day_mode)
             }
         }
     }
 
 }
+
+
+
