@@ -38,7 +38,7 @@
             android:layout_gravity="center"
             style="@style/normalMyriadGeo_Regular"
             android:hint="@string/editText_hint"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/neutral_02"
             android:maxLines="5"
             android:scrollbars="vertical"
             android:fadeScrollbars="false"

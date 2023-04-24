@@ -25,7 +25,7 @@
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_6_dp"
-        app:dividerColor="@color/yellow" />
+        app:dividerColor="@color/divider_primary" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bottomFragment"

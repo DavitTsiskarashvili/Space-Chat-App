@@ -4,19 +4,19 @@
     <style name="normalMyriadGeo_Regular" >
         <item name="fontFamily">@font/myriad_geo</item>
         <item name="android:textSize">@dimen/dimen_14_sp</item>
-        <item name="color">@color/dark_grey</item>
+        <item name="color">@color/neutral_01</item>
     </style>
 
     <style name="smallMyriadGeo_Regular" >
         <item name="fontFamily">@font/myriad_geo</item>
         <item name="android:textSize">@dimen/dimen_8_sp</item>
-        <item name="color">@color/dark_grey</item>
+        <item name="color">@color/neutral_01</item>
     </style>
 
     <style name="hintMyriadGeo_Regular" >
         <item name="fontFamily">@font/myriad_geo</item>
         <item name="android:textSize">@dimen/dimen_14_sp</item>
-        <item name="color">@color/grey</item>
+        <item name="color">@color/neutral_02</item>
     </style>
 
 
