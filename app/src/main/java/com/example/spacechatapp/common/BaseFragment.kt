@@ -13,7 +13,7 @@ typealias Inflater<T> = (inflater: LayoutInflater, view: ViewGroup?, attach: Boo
 abstract class BaseFragment<VB : ViewBinding>() : Fragment() {
 
     private var _binding: VB? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
     abstract fun inflate(): Inflater<VB>
     abstract fun onBind()
 

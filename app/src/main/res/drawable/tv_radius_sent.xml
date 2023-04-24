@@ -3,9 +3,9 @@
 
     <stroke
         android:width="@dimen/dimen_1_dp"
-        android:color="@color/purple" />
+        android:color="@color/purple_light" />
 
-    <solid android:color="@color/purple" />
+    <solid android:color="@color/purple_light" />
 
     <corners android:radius="@dimen/dimen_50_dp" />
 
