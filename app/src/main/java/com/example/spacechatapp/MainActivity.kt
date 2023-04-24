@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.spacechatapp.databinding.ActivityMainBinding
-import com.example.spacechatapp.presentation.ui.topFragment.TopFragment
+import com.example.spacechatapp.presentation.ui.ChatFragment.ChatFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,8 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun fragmentSetup() {
         supportFragmentManager.beginTransaction().apply {
-            add(R.id.topFragment, TopFragment())
-            add(R.id.bottomFragment, BottomFragment())
+            add(R.id.topFragment, ChatFragment())
         }.commit()
     }
 
@@ -40,8 +39,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
 }
-
-
-
