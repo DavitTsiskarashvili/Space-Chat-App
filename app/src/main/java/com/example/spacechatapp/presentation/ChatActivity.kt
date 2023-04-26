@@ -1,11 +1,11 @@
-package com.example.spacechatapp
+package com.example.spacechatapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.spacechatapp.R
 import com.example.spacechatapp.databinding.ActivityMainBinding
-import com.example.spacechatapp.domain.model.UserType
-import com.example.spacechatapp.presentation.ui.chatFragment.ChatFragment
+import com.example.spacechatapp.presentation.chatFragment_ui.ChatFragment
 
 class ChatActivity : AppCompatActivity() {
 

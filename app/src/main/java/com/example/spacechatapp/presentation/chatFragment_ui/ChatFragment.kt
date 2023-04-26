@@ -1,11 +1,10 @@
-package com.example.spacechatapp.presentation.ui.chatFragment
+package com.example.spacechatapp.presentation.chatFragment_ui
 
 import com.example.spacechatapp.databinding.FragmentChatBinding
-import com.example.spacechatapp.domain.model.UserType
 import com.example.spacechatapp.presentation.base.BaseFragment
 import com.example.spacechatapp.presentation.base.Inflater
-import com.example.spacechatapp.presentation.ui.adapter.ChatAdapter
-import com.example.spacechatapp.presentation.ui.viewModel.ChatViewModel
+import com.example.spacechatapp.presentation.chatFragment_adapter.ChatAdapter
+import com.example.spacechatapp.presentation.chatFragment_vm.ChatViewModel
 
 
 class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {

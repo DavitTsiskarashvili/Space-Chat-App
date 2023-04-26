@@ -1,4 +1,4 @@
-package com.example.spacechatapp.presentation.ui.adapter
+package com.example.spacechatapp.presentation.chatFragment_adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
