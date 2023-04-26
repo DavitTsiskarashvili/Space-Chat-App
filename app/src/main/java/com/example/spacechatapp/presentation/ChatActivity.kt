@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.spacechatapp.R
 import com.example.spacechatapp.databinding.ActivityMainBinding
-import com.example.spacechatapp.presentation.chatFragment_ui.ChatFragment
+import com.example.spacechatapp.presentation.chat_screen.ui.ChatFragment
 
 class ChatActivity : AppCompatActivity() {
 

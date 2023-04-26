@@ -1,4 +1,4 @@
-package com.example.spacechatapp.presentation.chatFragment_vm
+package com.example.spacechatapp.presentation.chat_screen.viewModel
 
 import androidx.lifecycle.ViewModel
 import com.example.spacechatapp.domain.repository.ChatRepository
