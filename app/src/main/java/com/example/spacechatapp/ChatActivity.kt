@@ -4,9 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.spacechatapp.databinding.ActivityMainBinding
-import com.example.spacechatapp.presentation.ui.ChatFragment.ChatFragment
+import com.example.spacechatapp.domain.model.UserType
+import com.example.spacechatapp.presentation.ui.chatFragment.ChatFragment
 
-class MainActivity : AppCompatActivity() {
+class ChatActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private fun fragmentSetup() {
         supportFragmentManager.beginTransaction().apply {
             add(R.id.topFragment, ChatFragment())
+            add(R.id.bottomFragment, ChatFragment())
         }.commit()
     }
 

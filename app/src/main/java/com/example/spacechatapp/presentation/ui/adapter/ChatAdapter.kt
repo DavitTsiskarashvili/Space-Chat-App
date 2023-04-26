@@ -1,4 +1,4 @@
-package com.example.spacechatapp.presentation.ui.adapters
+package com.example.spacechatapp.presentation.ui.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -15,9 +15,6 @@ import com.example.spacechatapp.domain.model.UserType
 class ChatAdapter(private val user: UserType) :
     ListAdapter<MessageModel, ChatAdapter.ChatViewHolder>(DiffUtilCallback()) {
 
-    inner class ChatViewHolder(val binding: LayoutMessageItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder =
         ChatViewHolder(
             LayoutMessageItemBinding.inflate(
@@ -27,39 +24,39 @@ class ChatAdapter(private val user: UserType) :
             )
         )
 
-    override fun onBindViewHolder(holder: ChatAdapter.ChatViewHolder, position: Int) {
-        user.let {
-            val message = getItem(position)
-            with(holder.binding) {
+    override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
+        holder.onBind(getItem(position), user)
+    }
+
+    class ChatViewHolder(private val binding: LayoutMessageItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun onBind(message: MessageModel, user: UserType) {
+            with(binding) {
                 tvMessage.text = message.message
                 tvDate.text = message.time.toString()
-                if (user == UserType.Sender && message.isSentBySender ||
-                    user == UserType.Receiver && !message.isSentBySender
-                ) {
-                    with(1f) {
-                        tvMessage.scaleX = this
-                        tvDate.scaleX = this
-                        root.scaleX = this
-                    }
-                    with(R.color.purple_light) {
-                        tvMessage.setColor(this)
-                        ivBubble.setColor(this)
-                        ivSmallBubble.setColor(this)
-                    }
-                } else {
-                    with(-1f) {
-                        tvMessage.scaleX = this
-                        tvDate.scaleX = this
-                        root.scaleX = this
-                    }
-                    with(R.color.neutral_05) {
-                        tvMessage.setColor(this)
-                        ivBubble.setColor(this)
-                        ivSmallBubble.setColor(this)
-                    }
-                }
+            }
+            if (message.sender == user.name) {
+                messageScaleAndColor(Right, R.color.purple_light)
+            } else {
+                messageScaleAndColor(Left, R.color.neutral_05)
             }
         }
+
+        private fun messageScaleAndColor(scale: Float, colorRes: Int) {
+            with(binding) {
+                tvMessage.scaleX = scale
+                tvDate.scaleX = scale
+                root.scaleX = scale
+                tvMessage.setColor(colorRes)
+                ivBubble.setColor(colorRes)
+                ivSmallBubble.setColor(colorRes)
+            }
+        }
+    }
+
+    companion object {
+        private const val Right = 1f
+        private const val Left = -1f
     }
 
     class DiffUtilCallback<T : Any> : DiffUtil.ItemCallback<T>() {
