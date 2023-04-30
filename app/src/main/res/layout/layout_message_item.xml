@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toStartOf="@id/ivSmallBubble"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <TextView
         android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,22 +37,23 @@
         android:background="@drawable/tv_radius_sent"
         android:paddingHorizontal="@dimen/dimen_18_dp"
         android:paddingVertical="@dimen/dimen_7_dp"
-        tools:text="sadada"
+        tools:text="გამარჯობა ზეზვა"
         style="@style/normalMyriadGeo_Regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDate"
+        style="@style/smallMyriadGeo_Regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_4_dp"
-        android:layout_marginEnd="@dimen/dimen_30_dp"
-        tools:text="მარ 14, 16:05"
-        style="@style/smallMyriadGeo_Regular"
+        android:layout_marginEnd="@dimen/dimen_25_dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+        app:layout_constraintEnd_toEndOf="@id/ivSmallBubble"
+        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="მარ 14, 16:05" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

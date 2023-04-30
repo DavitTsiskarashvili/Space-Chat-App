@@ -1,4 +1,4 @@
-package com.example.spacechatapp.domain.model
+package com.space.chatApp.domain.model
 
 data class MessageModel(
     val id: Int?,

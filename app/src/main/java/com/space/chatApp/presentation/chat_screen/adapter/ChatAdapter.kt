@@ -1,16 +1,17 @@
-package com.example.spacechatapp.presentation.chat_screen.adapter
+package com.space.chatApp.presentation.chat_screen.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.spacechatapp.R
-import com.example.spacechatapp.common.extensions.setColor
-import com.example.spacechatapp.databinding.LayoutMessageItemBinding
-import com.example.spacechatapp.domain.model.MessageModel
-import com.example.spacechatapp.domain.model.UserType
+import com.space.chat.R
+import com.space.chat.databinding.LayoutMessageItemBinding
+import com.space.chatApp.common.extensions.DateFormat
+import com.space.chatApp.common.extensions.setColor
+import com.space.chatApp.domain.model.MessageModel
+import com.space.chatApp.domain.model.UserType
+import com.space.chatApp.presentation.utils.DiffUtilCallback
 
 class ChatAdapter(private val user: UserType) :
     ListAdapter<MessageModel, ChatAdapter.ChatViewHolder>(DiffUtilCallback()) {
@@ -33,20 +34,19 @@ class ChatAdapter(private val user: UserType) :
         fun onBind(message: MessageModel, user: UserType) {
             with(binding) {
                 tvMessage.text = message.message
-                tvDate.text = message.time.toString()
+                tvDate.text = message.time?.DateFormat()
             }
             if (message.sender == user.name) {
-                messageScaleAndColor(Right, R.color.purple_light)
+                binding.root.layoutDirection = View.LAYOUT_DIRECTION_RTL
+                messageColor(R.color.purple_light)
             } else {
-                messageScaleAndColor(Left, R.color.neutral_05)
+                binding.root.layoutDirection = View.LAYOUT_DIRECTION_LTR
+                messageColor(R.color.neutral_05)
             }
         }
 
-        private fun messageScaleAndColor(scale: Float, colorRes: Int) {
-            with(binding) {
-                tvMessage.scaleX = scale
-                tvDate.scaleX = scale
-                root.scaleX = scale
+        private fun messageColor(colorRes: Int) {
+            with(binding){
                 tvMessage.setColor(colorRes)
                 ivBubble.setColor(colorRes)
                 ivSmallBubble.setColor(colorRes)
@@ -57,17 +57,6 @@ class ChatAdapter(private val user: UserType) :
     companion object {
         private const val Right = 1f
         private const val Left = -1f
-    }
-
-    class DiffUtilCallback<T : Any> : DiffUtil.ItemCallback<T>() {
-        override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
-            return oldItem.hashCode() == newItem.hashCode()
-        }
-
-        @SuppressLint("DiffUtilEquals")
-        override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
-            return oldItem == newItem
-        }
     }
 
 }
