@@ -30,7 +30,7 @@ class ChatActivity : AppCompatActivity() {
 
 
     private fun changeDayNightModes() {
-        binding.swDayNight.setOnCheckedChangeListener { _, isChecked ->
+        binding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
             AppCompatDelegate.setDefaultNightMode(
                 if (isChecked){
                     AppCompatDelegate.MODE_NIGHT_YES

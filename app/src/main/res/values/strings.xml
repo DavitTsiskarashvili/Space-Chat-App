@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Space Chat App</string>
     <string name="editText_hint">დაწერე შეტყობინება ...</string>
+    <string name="error_message">არ გაიგზავნა</string>
 </resources>
