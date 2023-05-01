@@ -1,20 +1,22 @@
-package com.example.spacechatapp.common
+package com.space.chatApp.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 
 
 typealias Inflater<T> = (inflater: LayoutInflater, view: ViewGroup?, attach: Boolean) -> T
 
-abstract class BaseFragment<VB : ViewBinding>() : Fragment() {
+abstract class BaseFragment<VB : ViewBinding, VM: ViewModel>() : Fragment() {
 
     private var _binding: VB? = null
     val binding get() = _binding!!
     abstract fun inflate(): Inflater<VB>
+    abstract fun viewModelClass() : Class<VM>
     abstract fun onBind()
 
     override fun onCreateView(

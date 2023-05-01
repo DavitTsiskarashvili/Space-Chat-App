@@ -1,12 +1,13 @@
-package com.example.spacechatapp
+package com.space.chatApp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
-import com.example.spacechatapp.databinding.ActivityMainBinding
-import com.example.spacechatapp.presentation.ui.topFragment.TopFragment
+import com.space.chatApp.R
+import com.space.chatApp.databinding.ActivityMainBinding
+import com.space.chatApp.presentation.chat_screen.ui.ChatFragment
 
-class MainActivity : AppCompatActivity() {
+class ChatActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -22,8 +23,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun fragmentSetup() {
         supportFragmentManager.beginTransaction().apply {
-            add(R.id.topFragment, TopFragment())
-            add(R.id.bottomFragment, BottomFragment())
+            add(R.id.topFragment, ChatFragment())
+            add(R.id.bottomFragment, ChatFragment())
         }.commit()
     }
 
@@ -40,8 +41,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
 }
-
-
-
