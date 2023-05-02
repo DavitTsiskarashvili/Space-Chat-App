@@ -7,16 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.space.chat.R
 import com.space.chat.databinding.LayoutMessageItemBinding
 import com.space.chatApp.common.extensions.DateFormat
 import com.space.chatApp.domain.model.MessageModel
-import com.space.chatApp.domain.model.UserType
+import com.space.chatApp.presentation.base.AdapterListener
 import com.space.chatApp.presentation.base.BaseAdapter
-import com.space.chatApp.presentation.utils.DiffUtilCallback
 
 class ChatAdapter(listener: AdapterListener, val context: Context) :
     BaseAdapter<MessageModel, LayoutMessageItemBinding, ChatAdapter.ChatViewHolder>(listener) {
@@ -40,7 +36,7 @@ class ChatAdapter(listener: AdapterListener, val context: Context) :
                 messageTextView.text = message.message
                 dateTextView.text = message.time?.DateFormat()
             }
-            if (listener.getUserId() == message.userID) {
+            if (listener.getUserId() == message.sender) {
                 binding.root.layoutDirection = View.LAYOUT_DIRECTION_RTL
                 messageColor(
                     R.color.purple_light,

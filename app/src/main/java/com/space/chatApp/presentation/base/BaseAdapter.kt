@@ -1,6 +1,5 @@
 package com.space.chatApp.presentation.base
 
-import android.content.Context
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
@@ -10,9 +9,7 @@ abstract class BaseAdapter<T : Any, VB : ViewBinding, VH : BaseAdapter.BaseViewH
     private val listener: AdapterListener
 ) : ListAdapter<T, VH>(DiffUtilCallback<T>()) {
 
-    interface AdapterListener {
-        fun getUserId(): String
-    }
+
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.onBind(getItem(position), listener)

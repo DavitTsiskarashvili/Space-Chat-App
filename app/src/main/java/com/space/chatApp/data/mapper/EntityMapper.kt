@@ -5,13 +5,13 @@ import com.space.chatApp.domain.model.MessageModel
 
 fun MessageModel.toEntity() = ChatEntity(
     id = id,
-    sender = userID,
+    sender = sender,
     message = message,
     time = time,
 )
 fun ChatEntity.toModel() = MessageModel(
     id = id,
-    userID = sender,
+    sender = sender,
     message = message,
     time = time,
 )

@@ -41,8 +41,8 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
                 } else {
                     adapter.networkType(ChatAdapter.NetworkConnection.ERROR)
                 }
+                binding.messageEditText.text?.clear()
             }
-            binding.messageEditText.text?.clear()
         }
     }
 
@@ -53,7 +53,7 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
 
     private fun sendMessage(viewModel: ChatViewModel) {
         viewModel.sendMessage(
-            binding.messageEditText.text.toString(), UserType.valueOf(tag.toString())
+            binding.messageEditText.text.toString(), tag.toString()
         )
     }
 
@@ -62,7 +62,7 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
             viewModel.messages
             viewModel.showMessages().collect {
                 adapter.submitList(it)
-                binding.chatRecyclerView.scrollToPosition(adapter.itemCount - 0)
+                binding.chatRecyclerView.scrollToPosition(adapter.itemCount - 1)
             }
         }
     }
