@@ -1,34 +1,26 @@
 package com.space.chatApp.presentation.base
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.content.Context
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.space.chatApp.domain.model.MessageModel
 import com.space.chatApp.presentation.utils.DiffUtilCallback
 
-abstract class BaseAdapter<T : Any, VB : ViewBinding>(private val inflater: Inflater<VB>) :
-    ListAdapter<T, BaseAdapter<T, VB>.BaseViewHolder>(DiffUtilCallback<T>()) {
+abstract class BaseAdapter<T : Any, VB : ViewBinding, VH : BaseAdapter.BaseViewHolder<T, VB>>(
+    private val listener: AdapterListener
+) : ListAdapter<T, VH>(DiffUtilCallback<T>()) {
 
-    abstract fun onBind(binding: VB, position: Int)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = BaseViewHolder(
-        inflater.invoke(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
-    )
-
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        holder.bind()
+    interface AdapterListener {
+        fun getUserId(): String
     }
 
-    inner class BaseViewHolder(private val binding: VB) : RecyclerView.ViewHolder(binding.root) {
-        fun bind() {
-            onBind(binding, adapterPosition)
-        }
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        holder.onBind(getItem(position), listener)
+    }
+
+    abstract class BaseViewHolder<T : Any, VB : ViewBinding>(binding: VB) :
+        RecyclerView.ViewHolder(binding.root) {
+        abstract fun onBind(message: T, listener: AdapterListener)
     }
 
 }

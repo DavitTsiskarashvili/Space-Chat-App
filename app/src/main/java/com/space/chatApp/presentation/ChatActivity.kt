@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.space.chat.R
 import com.space.chat.databinding.ActivityMainBinding
+import com.space.chatApp.domain.model.UserType
 import com.space.chatApp.presentation.chat_screen.ui.ChatFragment
 
 class ChatActivity : AppCompatActivity() {

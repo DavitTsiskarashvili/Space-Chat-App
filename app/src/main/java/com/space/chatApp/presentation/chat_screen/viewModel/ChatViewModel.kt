@@ -21,7 +21,7 @@ class ChatViewModel(
     fun showMessages(): Flow<List<MessageModel>> = chatRepository.showMessages()
 
     private fun provideMessageModel(messageInput: String, tag: UserType) = MessageModel(
-        sender = tag, message = messageInput, time = getTimeInMills()
+        userID = tag.toString(), message = messageInput, time = getTimeInMills()
     )
 
     fun sendMessage(messageInput: String, tag: UserType) {

@@ -8,7 +8,7 @@ import com.space.chatApp.domain.model.UserType
 data class ChatEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int?,
-    val sender: UserType?,
+    val sender: String?,
     val message: String?,
     val time: Long?,
 )

@@ -23,7 +23,11 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
 
 
     private val adapter by lazy {
-        ChatAdapter(requireContext())
+        ChatAdapter(listener, requireContext())
+    }
+
+    override fun userId(): String {
+        return tag.toString()
     }
 
     override fun onBind(viewModel: ChatViewModel) {
@@ -62,6 +66,8 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
             }
         }
     }
+
+
 
 //    private fun showErrorMessage(){
 //        binding.tvMessage.setTextColor(resources.getColor(R.color.error_text))
