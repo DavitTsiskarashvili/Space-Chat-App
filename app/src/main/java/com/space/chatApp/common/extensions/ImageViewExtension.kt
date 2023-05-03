@@ -7,5 +7,5 @@ import android.widget.TextView
 
 
 fun ImageView.setImageTint(colorRes: Int) {
-    this.imageTintList = ColorStateList.valueOf(this.context.getColor(colorRes))
+    this.backgroundTintList = ColorStateList.valueOf(this.context.getColor(colorRes))
 }
