@@ -16,7 +16,6 @@
         android:layout_marginEnd="@dimen/dimen_2_dp"
         android:layout_marginBottom="@dimen/dimen_4_dp"
         android:background="@drawable/ic_send_small_bubble"
-        app:layout_constraintTop_toBottomOf="@+id/bubbleImageView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -24,12 +23,9 @@
         android:id="@+id/bubbleImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_28_dp"
-        android:layout_marginStart="@dimen/dimen_28_dp"
         android:background="@drawable/ic_send_big_bubble"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/smallBubbleImageView"
+        app:layout_constraintStart_toEndOf="@id/smallBubbleImageView" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/messageTextView"
@@ -38,15 +34,15 @@
         app:layout_constraintWidth_max="wrap"
         app:layout_constraintWidth_percent="0.7"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_32_dp"
+        android:layout_marginStart="@dimen/dimen_1_dp"
         android:layout_marginTop="@dimen/dimen_4_dp"
         android:background="@drawable/tv_radius_sent"
         android:paddingTop="@dimen/dimen_18_dp"
         android:paddingBottom="@dimen/dimen_18_dp"
         android:paddingStart="@dimen/dimen_18_dp"
         android:paddingEnd="@dimen/dimen_18_dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/bubbleImageView"
+        app:layout_constraintBottom_toBottomOf="@id/bubbleImageView"
         tools:text="გამარჯობა ზეზვა" />
 
     <androidx.appcompat.widget.AppCompatTextView
