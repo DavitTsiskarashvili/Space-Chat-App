@@ -4,7 +4,7 @@
     package="com.space.chat">
 
     <application
-        android:name="com.space.chat.App"
+        android:name="com.space.chatApp.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,7 +15,7 @@
         android:theme="@style/Theme.SpaceChatApp"
         tools:targetApi="31">
         <activity
-            android:name="com.space.chat.presentation.ChatActivity"
+            android:name="com.space.chatApp.presentation.ChatActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="com.space.chatApp.presentation.ChatActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/swDayNight"
@@ -15,6 +19,8 @@
         android:layout_marginEnd="@dimen/dimen_12_dp"
         android:thumb="@drawable/ic_toggle_day"
         app:track="@drawable/bkg_track_day"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/topFragment"

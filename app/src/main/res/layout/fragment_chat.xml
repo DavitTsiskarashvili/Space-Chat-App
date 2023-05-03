@@ -7,7 +7,7 @@
     tools:context="com.space.chatApp.presentation.ChatActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChatSender"
+        android:id="@+id/rvChat"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_0_dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -23,7 +23,7 @@
         android:orientation="horizontal"
         android:layout_marginHorizontal="@dimen/dimen_16_dp"
         android:layout_marginBottom="@dimen/dimen_30_dp"
-        android:background="@drawable/message_edittext"
+        android:background="@drawable/shp_message_edittext"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.AppCompatEditText

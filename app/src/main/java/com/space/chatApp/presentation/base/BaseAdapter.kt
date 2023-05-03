@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.space.chatApp.domain.model.MessageModel
 import com.space.chatApp.presentation.utils.DiffUtilCallback
 
-abstract class BaseAdapter<T : DiffUtilCallback<T>, VB : ViewBinding>(private val inflater: Inflater<VB>) :
+abstract class BaseAdapter<T : Any, VB : ViewBinding>(private val inflater: Inflater<VB>) :
     ListAdapter<T, BaseAdapter<T, VB>.BaseViewHolder>(DiffUtilCallback<T>()) {
 
     abstract fun onBind(binding: VB, position: Int)

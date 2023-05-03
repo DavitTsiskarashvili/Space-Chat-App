@@ -1,56 +1,37 @@
 package com.space.chatApp.presentation.chat_screen.adapter
 
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.space.chat.R
 import com.space.chat.databinding.LayoutMessageItemBinding
 import com.space.chatApp.common.extensions.DateFormat
 import com.space.chatApp.common.extensions.setColor
 import com.space.chatApp.domain.model.MessageModel
 import com.space.chatApp.domain.model.UserType
-import com.space.chatApp.presentation.utils.DiffUtilCallback
+import com.space.chatApp.presentation.base.BaseAdapter
 
-class ChatAdapter(private val user: UserType) :
-    ListAdapter<MessageModel, ChatAdapter.ChatViewHolder>(DiffUtilCallback()) {
+class ChatAdapter() :
+    BaseAdapter<MessageModel, LayoutMessageItemBinding>(LayoutMessageItemBinding::inflate) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder =
-        ChatViewHolder(
-            LayoutMessageItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        )
-
-    override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
-        holder.onBind(getItem(position), user)
-    }
-
-    class ChatViewHolder(private val binding: LayoutMessageItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun onBind(message: MessageModel, user: UserType) {
+    override fun onBind(binding: LayoutMessageItemBinding, position: Int) {
+            val message = getItem(position)
             with(binding) {
                 tvMessage.text = message.message
                 tvDate.text = message.time?.DateFormat()
             }
-            if (message.sender == user.name) {
+            if (message.sender == UserType.Sender) {
                 binding.root.layoutDirection = View.LAYOUT_DIRECTION_RTL
-                messageColor(R.color.purple_light)
+                messageColor(binding, R.color.purple_light)
             } else {
                 binding.root.layoutDirection = View.LAYOUT_DIRECTION_LTR
-                messageColor(R.color.neutral_05)
+                messageColor(binding, R.color.neutral_05)
             }
         }
 
-        private fun messageColor(colorRes: Int) {
-            with(binding){
-                tvMessage.setColor(colorRes)
-                ivBubble.setColor(colorRes)
-                ivSmallBubble.setColor(colorRes)
-            }
+    private fun messageColor(binding: LayoutMessageItemBinding, colorRes: Int) {
+        with(binding) {
+            tvMessage.setColor(colorRes)
+            ivBubble.setColor(colorRes)
+            ivSmallBubble.setColor(colorRes)
         }
     }
 
@@ -60,3 +41,4 @@ class ChatAdapter(private val user: UserType) :
     }
 
 }
+
