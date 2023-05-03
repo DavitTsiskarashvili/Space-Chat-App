@@ -1,8 +1,8 @@
 package com.space.chatApp.common.extensions
 
 import android.content.res.ColorStateList
-import android.view.View
+import android.widget.TextView
 
-fun View.setColor(colorRes: Int){
+fun TextView.setTextTint(colorRes: Int) {
     this.backgroundTintList = ColorStateList.valueOf(this.context.getColor(colorRes))
 }

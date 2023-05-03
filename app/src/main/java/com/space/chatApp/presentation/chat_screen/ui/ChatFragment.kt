@@ -3,7 +3,6 @@ package com.space.chatApp.presentation.chat_screen.ui
 import androidx.lifecycle.lifecycleScope
 import com.space.chat.databinding.FragmentChatBinding
 import com.space.chatApp.common.extensions.isNetworkAvailable
-import com.space.chatApp.domain.model.UserType
 import com.space.chatApp.presentation.base.BaseFragment
 import com.space.chatApp.presentation.base.Inflater
 import com.space.chatApp.presentation.chat_screen.adapter.ChatAdapter
@@ -48,7 +47,7 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
 
     private fun initRecycler(viewModel: ChatViewModel) {
         binding.chatRecyclerView.adapter = adapter
-        showMessages(viewModel)
+        getAllMessages(viewModel)
     }
 
     private fun sendMessage(viewModel: ChatViewModel) {
@@ -57,10 +56,10 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
         )
     }
 
-    private fun showMessages(viewModel: ChatViewModel) {
+    private fun getAllMessages(viewModel: ChatViewModel) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.messages
-            viewModel.showMessages().collect {
+            viewModel.getAllMessages().collect {
                 adapter.submitList(it)
                 binding.chatRecyclerView.scrollToPosition(adapter.itemCount - 1)
             }

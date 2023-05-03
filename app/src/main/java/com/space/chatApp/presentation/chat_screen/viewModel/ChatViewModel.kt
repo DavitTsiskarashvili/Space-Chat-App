@@ -17,7 +17,7 @@ class ChatViewModel(
     private var _messages = MutableSharedFlow<MessageModel?>()
     val messages get() = _messages.asSharedFlow()
 
-    fun showMessages(): Flow<List<MessageModel>> = chatRepository.showMessages()
+    fun getAllMessages(): Flow<List<MessageModel>> = chatRepository.showMessages()
 
     private fun provideMessageModel(messageInput: String, tag: String) = MessageModel(
         sender = tag, message = messageInput, time = getTimeInMills()
