@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/itemLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,50 +11,50 @@
 
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivSmallBubble"
+        android:id="@+id/smallBubbleImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_2_dp"
         android:layout_marginEnd="@dimen/dimen_2_dp"
         android:layout_marginBottom="@dimen/dimen_4_dp"
         android:background="@drawable/ic_send_small_bubble"
+        app:layout_constraintTop_toBottomOf="@+id/bubbleImageView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivBubble"
+        android:id="@+id/bubbleImageView"
         android:layout_width="@dimen/dimen_15_dp"
         android:layout_height="@dimen/dimen_15_dp"
         android:layout_marginTop="@dimen/dimen_23_dp"
         android:background="@drawable/ic_send_big_bubble"
-        app:layout_constraintEnd_toStartOf="@id/ivSmallBubble"
+        app:layout_constraintEnd_toStartOf="@id/smallBubbleImageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvMessage"
+        android:id="@+id/messageTextView"
+        style="@style/normalMyriadGeo_Regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_4_dp"
-        android:layout_marginEnd="@dimen/dimen_20_dp"
+        android:layout_marginEnd="@dimen/dimen_18_dp"
         android:background="@drawable/tv_radius_sent"
         android:paddingHorizontal="@dimen/dimen_18_dp"
         android:paddingVertical="@dimen/dimen_7_dp"
-        tools:text="გამარჯობა ზეზვა"
-        style="@style/normalMyriadGeo_Regular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="გამარჯობა ზეზვა" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvDate"
+        android:id="@+id/dateTextView"
         style="@style/smallMyriadGeo_Regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_4_dp"
         android:layout_marginEnd="@dimen/dimen_25_dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/ivSmallBubble"
-        app:layout_constraintTop_toBottomOf="@id/tvMessage"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@id/smallBubbleImageView"
+        app:layout_constraintTop_toBottomOf="@id/messageTextView"
         tools:text="მარ 14, 16:05" />
 
 
