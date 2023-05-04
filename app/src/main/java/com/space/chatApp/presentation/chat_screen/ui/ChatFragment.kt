@@ -1,5 +1,10 @@
 package com.space.chatApp.presentation.chat_screen.ui
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.space.chat.databinding.FragmentChatBinding
 import com.space.chatApp.common.extensions.isNetworkAvailable
@@ -20,28 +25,23 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
     override val viewModelClass: KClass<ChatViewModel>
         get() = ChatViewModel::class
 
-
     private val adapter by lazy {
-        ChatAdapter(listener, requireContext())
+        ChatAdapter(listener)
     }
 
-    override fun userId(): String {
-        return tag.toString()
-    }
+    private var messageInput: String? = null
 
-    override fun onBind(viewModel: ChatViewModel) {
+    override fun onBind(viewModel: ChatViewModel, savedInstanceState: Bundle?) {
         with(viewModel) {
             initRecycler(this)
+            sendButtonListener(this)
+        }
+    }
 
-            binding.sendButton.setOnClickListener {
-                if (requireContext().isNetworkAvailable()) {
-                    adapter.networkType(ChatAdapter.NetworkConnection.SUCCESS)
-                    sendMessage(this)
-                } else {
-                    adapter.networkType(ChatAdapter.NetworkConnection.ERROR)
-                }
-                binding.messageEditText.text?.clear()
-            }
+    private fun sendButtonListener(viewModel: ChatViewModel) {
+        binding.sendButton.setOnClickListener {
+            sendMessage(viewModel)
+            binding.messageEditText.text?.clear()
         }
     }
 
@@ -61,16 +61,30 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
             viewModel.messages
             viewModel.getAllMessages().collect {
                 adapter.submitList(it)
-                binding.chatRecyclerView.scrollToPosition(adapter.itemCount - 1)
             }
         }
     }
 
-
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        super.onSaveInstanceState(outState)
+//        messageInput = binding.messageEditText.text.toString()
+//        outState.putString("MessageInput", messageInput)
+//    }
+//
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        if (savedInstanceState != null) {
+//            messageInput = savedInstanceState.getString("editTextValue")
+//            binding.messageEditText.setText(messageInput)
+//        }
+//    }
 
 //    private fun showErrorMessage(){
 //        binding.tvMessage.setTextColor(resources.getColor(R.color.error_text))
 //        binding.tvDate.text = resources.getText(R.string.error_message)
 //    }
+//    adapter.networkType(ChatAdapter.NetworkConnection.SUCCESS)
+//    adapter.networkType(ChatAdapter.NetworkConnection.ERROR)
+
 
 }
