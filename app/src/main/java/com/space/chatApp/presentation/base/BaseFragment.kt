@@ -15,7 +15,7 @@ typealias Inflater<T> = (inflater: LayoutInflater, view: ViewGroup?, attach: Boo
 abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>() : Fragment() {
 
     abstract val viewModelClass: KClass<VM>
-    private val viewModel: VM by viewModelForClass(clazz = viewModelClass)
+    val viewModel: VM by viewModelForClass(clazz = viewModelClass)
 
     private var _binding: VB? = null
     val binding get() = _binding!!

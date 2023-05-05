@@ -1,10 +1,6 @@
 package com.space.chatApp.presentation.chat_screen.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.space.chat.databinding.FragmentChatBinding
 import com.space.chatApp.common.extensions.isNetworkAvailable
@@ -25,23 +21,18 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
     override val viewModelClass: KClass<ChatViewModel>
         get() = ChatViewModel::class
 
+
     private val adapter by lazy {
         ChatAdapter(listener)
     }
-
-    private var messageInput: String? = null
 
     override fun onBind(viewModel: ChatViewModel, savedInstanceState: Bundle?) {
         with(viewModel) {
             initRecycler(this)
             sendButtonListener(this)
-        }
-    }
-
-    private fun sendButtonListener(viewModel: ChatViewModel) {
-        binding.sendButton.setOnClickListener {
-            sendMessage(viewModel)
-            binding.messageEditText.text?.clear()
+//            binding.messageEditText.doOnTextChanged { text, start, before, count ->
+//                viewModel.setSomeStringData(binding.messageEditText.text.toString())
+//            }
         }
     }
 
@@ -50,41 +41,54 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
         getAllMessages(viewModel)
     }
 
-    private fun sendMessage(viewModel: ChatViewModel) {
-        viewModel.sendMessage(
-            binding.messageEditText.text.toString(), tag.toString()
-        )
-    }
-
     private fun getAllMessages(viewModel: ChatViewModel) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.messages
             viewModel.getAllMessages().collect {
-                adapter.submitList(it)
+                adapter.submitList(viewModel.noInternetConnection(it, userId))
             }
         }
     }
 
+    private fun sendButtonListener(viewModel: ChatViewModel) {
+        binding.sendButton.setOnClickListener {
+                sendMessage(viewModel)
+            binding.messageEditText.text?.clear()
+        }
+    }
+
+    private fun sendMessage(viewModel: ChatViewModel) {
+        viewModel.sendMessage(
+            binding.messageEditText.text.toString(), tag.toString(),
+            requireContext().isNetworkAvailable()
+        )
+    }
+
+//
+//    override fun onResume() {
+//        super.onResume()
+//        val messageInput = viewModel.getSomeStringData()
+//        if (messageInput != null) {
+//            binding.messageEditText.setText(messageInput)
+//        } else {
+//            binding.messageEditText.text?.clear()
+//        }
+//    }
+
+
+//
 //    override fun onSaveInstanceState(outState: Bundle) {
 //        super.onSaveInstanceState(outState)
-//        messageInput = binding.messageEditText.text.toString()
-//        outState.putString("MessageInput", messageInput)
+//        viewModel.messageInput = binding.messageEditText.text.toString()
+//        outState.putString("MessageInput", viewModel.messageInput)
 //    }
 //
 //    override fun onActivityCreated(savedInstanceState: Bundle?) {
 //        super.onActivityCreated(savedInstanceState)
 //        if (savedInstanceState != null) {
-//            messageInput = savedInstanceState.getString("editTextValue")
-//            binding.messageEditText.setText(messageInput)
+//            viewModel.messageInput = savedInstanceState.getString("MessageInput")
+//            binding.messageEditText.setText(viewModel.messageInput)
 //        }
 //    }
-
-//    private fun showErrorMessage(){
-//        binding.tvMessage.setTextColor(resources.getColor(R.color.error_text))
-//        binding.tvDate.text = resources.getText(R.string.error_message)
-//    }
-//    adapter.networkType(ChatAdapter.NetworkConnection.SUCCESS)
-//    adapter.networkType(ChatAdapter.NetworkConnection.ERROR)
-
 
 }
