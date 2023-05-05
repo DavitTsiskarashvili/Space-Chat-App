@@ -16,10 +16,9 @@ typealias Inflater<T> = (inflater: LayoutInflater, view: ViewGroup?, attach: Boo
 abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>() : Fragment() {
 
     protected val listener = object : AdapterListener {
-        override fun getUserId(): String = userId
+        override fun getUserId(): String = userId()
     }
 
-    protected val userId get() = userId()
     abstract fun userId(): String
 
     private var _binding: VB? = null
