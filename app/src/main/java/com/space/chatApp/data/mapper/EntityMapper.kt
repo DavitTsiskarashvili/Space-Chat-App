@@ -1,6 +1,5 @@
 package com.space.chatApp.data.mapper
 
-import com.space.chatApp.common.extensions.convertDateToLong
 import com.space.chatApp.common.extensions.dateFormat
 import com.space.chatApp.data.local.MessageEntity
 import com.space.chatApp.domain.model.MessageDomainModel
@@ -26,13 +25,5 @@ fun MessageDomainModel.toUiModel() = MessageUiModel(
     sender = sender,
     message = message,
     time = time?.dateFormat(),
-    isNetworkConnection = isNetworkConnection
-)
-
-fun MessageUiModel.toDomainModel() = MessageDomainModel(
-    id = id,
-    sender = sender,
-    message = message,
-    time = time?.let {convertDateToLong(it)},
     isNetworkConnection = isNetworkConnection
 )
