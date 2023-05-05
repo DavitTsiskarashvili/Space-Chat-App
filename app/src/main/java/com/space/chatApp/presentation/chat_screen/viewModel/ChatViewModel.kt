@@ -17,16 +17,6 @@ class ChatViewModel(
     private val chatRepository: ChatRepository
 ) : ViewModel() {
 
-//    var messageInput: String? = null
-//
-//    fun setSomeStringData(data: String?) {
-//        messageInput = data
-//    }
-//
-//    fun getSomeStringData(): String? {
-//        return messageInput
-//    }
-
     private var _messages = MutableSharedFlow<MessageDomainModel?>()
     val messages get() = _messages.asSharedFlow()
 
@@ -73,3 +63,13 @@ class ChatViewModel(
     }
 
 }
+
+//    var messageInput: String? = null
+//
+//    fun setSomeStringData(data: String?) {
+//        messageInput = data
+//    }
+//
+//    fun getSomeStringData(): String? {
+//        return messageInput
+//    }

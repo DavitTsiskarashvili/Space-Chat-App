@@ -30,9 +30,6 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
         with(viewModel) {
             initRecycler(this)
             sendButtonListener(this)
-//            binding.messageEditText.doOnTextChanged { text, start, before, count ->
-//                viewModel.setSomeStringData(binding.messageEditText.text.toString())
-//            }
         }
     }
 
@@ -52,9 +49,13 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
 
     private fun sendButtonListener(viewModel: ChatViewModel) {
         binding.sendButton.setOnClickListener {
-                sendMessage(viewModel)
-            binding.messageEditText.text?.clear()
+            sendMessage(viewModel)
+            clearMessageInput()
         }
+    }
+
+    private fun clearMessageInput(){
+        binding.messageEditText.text?.clear()
     }
 
     private fun sendMessage(viewModel: ChatViewModel) {
@@ -64,6 +65,10 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
         )
     }
 
+}
+//    binding.messageEditText.doOnTextChanged { text, start, before, count ->
+//      viewModel.setSomeStringData(binding.messageEditText.text.toString())
+//    }
 //
 //    override fun onResume() {
 //        super.onResume()
@@ -74,8 +79,6 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
 //            binding.messageEditText.text?.clear()
 //        }
 //    }
-
-
 //
 //    override fun onSaveInstanceState(outState: Bundle) {
 //        super.onSaveInstanceState(outState)
@@ -90,5 +93,3 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
 //            binding.messageEditText.setText(viewModel.messageInput)
 //        }
 //    }
-
-}
