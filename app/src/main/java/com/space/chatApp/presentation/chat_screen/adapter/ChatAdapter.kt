@@ -42,6 +42,7 @@ class ChatAdapter(private val listener: AdapterListener) :
                     if (message.isNetworkConnection) {
                         root.layoutDirection = View.LAYOUT_DIRECTION_RTL
                         binding.messageTextView.setCustomTextColor(R.color.neutral_01_great_dark_grey)
+                        binding.dateTextView.setCustomTextColor(R.color.neutral_02_dark_grey)
                         messageColor(
                             R.color.purple_light,
                             messageTextView,
@@ -57,6 +58,7 @@ class ChatAdapter(private val listener: AdapterListener) :
                 } else {
                     root.layoutDirection = View.LAYOUT_DIRECTION_LTR
                     binding.messageTextView.setCustomTextColor(R.color.neutral_01_great_dark_grey)
+                    binding.dateTextView.setCustomTextColor(R.color.neutral_02_dark_grey)
                     messageColor(
                         R.color.neutral_05_lightest_grey,
                         messageTextView,
