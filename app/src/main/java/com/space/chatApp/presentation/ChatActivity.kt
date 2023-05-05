@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.space.chat.databinding.ActivityMainBinding
 import com.space.chatApp.domain.model.UserType
 import com.space.chatApp.presentation.chat_screen.ui.ChatFragment
+import com.space.chatApp.presentation.utils.ThemeUtils
 
 class ChatActivity : AppCompatActivity() {
 
@@ -15,7 +16,7 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        ThemeUtils.applyThemeMode(this)
         fragmentSetup()
         changeDayNightModes()
     }
@@ -31,13 +32,9 @@ class ChatActivity : AppCompatActivity() {
 
     private fun changeDayNightModes() {
         binding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            AppCompatDelegate.setDefaultNightMode(
-                if (isChecked){
-                    AppCompatDelegate.MODE_NIGHT_YES
-                } else {
-                    AppCompatDelegate.MODE_NIGHT_NO
-                }
-            )
+            val themeMode = if (isChecked) ThemeUtils.DARK_MODE else ThemeUtils.LIGHT_MODE
+            ThemeUtils.setThemeMode(this, themeMode)
+            ThemeUtils.applyThemeMode(this)
         }
     }
 
