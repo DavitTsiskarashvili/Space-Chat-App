@@ -10,11 +10,11 @@ import com.space.chat.databinding.LayoutMessageItemBinding
 import com.space.chatApp.common.extensions.messageColor
 import com.space.chatApp.common.extensions.setCustomTextColor
 import com.space.chatApp.presentation.base.AdapterListener
-import com.space.chatApp.presentation.chat_screen.model.MessageUiModel
+import com.space.chatApp.presentation.chat_screen.model.MessageUIModel
 import com.space.chatApp.presentation.utils.DiffUtilCallback
 
 class ChatAdapter(private val listener: AdapterListener) :
-    ListAdapter<MessageUiModel, ChatAdapter.ChatViewHolder>(DiffUtilCallback()) {
+    ListAdapter<MessageUIModel, ChatAdapter.ChatViewHolder>(DiffUtilCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder =
         ChatViewHolder(
@@ -32,47 +32,58 @@ class ChatAdapter(private val listener: AdapterListener) :
     class ChatViewHolder(private val binding: LayoutMessageItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(message: MessageUiModel, listener: AdapterListener) {
+        fun onBind(message: MessageUIModel, listener: AdapterListener) {
             with(binding) {
                 messageTextView.text = message.message
                 dateTextView.text = message.time
 
                 if (listener.getUserId() == message.sender) {
-
+                    root.layoutDirection = View.LAYOUT_DIRECTION_RTL
+                    messageColorForSender()
                     if (message.isNetworkConnection) {
-                        root.layoutDirection = View.LAYOUT_DIRECTION_RTL
-                        with(binding){
-                            messageTextView.setCustomTextColor(R.color.neutral_01_great_dark_grey)
-                            dateTextView.setCustomTextColor(R.color.neutral_02_dark_grey)
-                        }
-                        messageColor(
-                            R.color.purple_light,
-                            messageTextView,
-                            bubbleImageView,
-                            smallBubbleImageView
-                        )
+                        textColor()
                     } else {
-                        root.layoutDirection = View.LAYOUT_DIRECTION_RTL
-                        with(binding){
-                            messageTextView.setCustomTextColor(R.color.error_text)
-                            dateTextView.setCustomTextColor(R.color.error_label)
-                            dateTextView.setText(R.string.error_message)
-                        }
+                        textColorWithoutInternet()
                     }
                 } else {
                     root.layoutDirection = View.LAYOUT_DIRECTION_LTR
-                    with(binding){
-                        messageTextView.setCustomTextColor(R.color.neutral_01_great_dark_grey)
-                        dateTextView.setCustomTextColor(R.color.neutral_02_dark_grey)
-                    }
-                    messageColor(
-                        R.color.neutral_05_lightest_grey,
-                        messageTextView,
-                        bubbleImageView,
-                        smallBubbleImageView
-                    )
+                    messageColorForReceiver()
+                    textColor()
                 }
             }
+        }
+
+        private fun textColor() {
+            with(binding) {
+                messageTextView.setCustomTextColor(R.color.neutral_01_great_dark_grey)
+                dateTextView.setCustomTextColor(R.color.neutral_02_dark_grey)
+            }
+        }
+
+        private fun messageColorForSender() {
+            messageColor(
+                R.color.purple_light,
+                binding.messageTextView,
+                binding.bubbleImageView,
+                binding.smallBubbleImageView
+            )
+        }
+
+        private fun textColorWithoutInternet() {
+            with(binding) {
+                messageTextView.setCustomTextColor(R.color.error_text)
+                dateTextView.setCustomTextColor(R.color.error_label)
+                dateTextView.setText(R.string.error_message)
+            }
+        }
+
+        private fun messageColorForReceiver() {
+            messageColor(
+                R.color.neutral_05_lightest_grey,
+                binding.messageTextView,
+                binding.bubbleImageView,
+                binding.smallBubbleImageView
+            )
         }
     }
 

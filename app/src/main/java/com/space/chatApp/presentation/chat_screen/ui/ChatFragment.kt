@@ -1,6 +1,5 @@
 package com.space.chatApp.presentation.chat_screen.ui
 
-import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.space.chat.databinding.FragmentChatBinding
 import com.space.chatApp.common.extensions.isNetworkAvailable
@@ -26,7 +25,7 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
         ChatAdapter(listener)
     }
 
-    override fun onBind(viewModel: ChatViewModel, savedInstanceState: Bundle?) {
+    override fun onBind(viewModel: ChatViewModel) {
         with(viewModel) {
             initRecycler(this)
             sendButtonListener(this)
@@ -42,7 +41,7 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.messages
             viewModel.getAllMessages().collect {
-                adapter.submitList(viewModel.noInternetConnection(it, userId))
+                adapter.submitList(viewModel.filterMessagesWithoutInternet(it, userId))
             }
         }
     }
@@ -66,30 +65,3 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
     }
 
 }
-//    binding.messageEditText.doOnTextChanged { text, start, before, count ->
-//      viewModel.setSomeStringData(binding.messageEditText.text.toString())
-//    }
-//
-//    override fun onResume() {
-//        super.onResume()
-//        val messageInput = viewModel.getSomeStringData()
-//        if (messageInput != null) {
-//            binding.messageEditText.setText(messageInput)
-//        } else {
-//            binding.messageEditText.text?.clear()
-//        }
-//    }
-//
-//    override fun onSaveInstanceState(outState: Bundle) {
-//        super.onSaveInstanceState(outState)
-//        viewModel.messageInput = binding.messageEditText.text.toString()
-//        outState.putString("MessageInput", viewModel.messageInput)
-//    }
-//
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        if (savedInstanceState != null) {
-//            viewModel.messageInput = savedInstanceState.getString("MessageInput")
-//            binding.messageEditText.setText(viewModel.messageInput)
-//        }
-//    }

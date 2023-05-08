@@ -3,7 +3,7 @@ package com.space.chatApp.data.mapper
 import com.space.chatApp.common.extensions.dateFormat
 import com.space.chatApp.data.local.MessageEntity
 import com.space.chatApp.domain.model.MessageDomainModel
-import com.space.chatApp.presentation.chat_screen.model.MessageUiModel
+import com.space.chatApp.presentation.chat_screen.model.MessageUIModel
 
 fun MessageDomainModel.toEntity() = MessageEntity(
     id = id,
@@ -20,7 +20,7 @@ fun MessageEntity.toDomainModel() = MessageDomainModel(
     isNetworkConnection = isNetworkConnection
 )
 
-fun MessageDomainModel.toUiModel() = MessageUiModel(
+fun MessageDomainModel.toUiModel() = MessageUIModel(
     id = id,
     sender = sender,
     message = message,

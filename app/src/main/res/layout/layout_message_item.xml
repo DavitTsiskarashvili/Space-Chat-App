@@ -37,10 +37,7 @@
         android:layout_marginStart="@dimen/dimen_1_dp"
         android:layout_marginTop="@dimen/dimen_4_dp"
         android:background="@drawable/tv_radius_sent"
-        android:paddingTop="@dimen/dimen_18_dp"
-        android:paddingBottom="@dimen/dimen_18_dp"
-        android:paddingStart="@dimen/dimen_18_dp"
-        android:paddingEnd="@dimen/dimen_18_dp"
+        android:padding="@dimen/dimen_18_dp"
         app:layout_constraintStart_toStartOf="@id/bubbleImageView"
         app:layout_constraintBottom_toBottomOf="@id/bubbleImageView"
         tools:text="გამარჯობა ზეზვა" />
