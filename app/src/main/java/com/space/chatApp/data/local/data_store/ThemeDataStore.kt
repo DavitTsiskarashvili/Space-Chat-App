@@ -15,19 +15,15 @@ import java.io.IOException
 
 private const val THEME_MODE_FILE_NAME = "theme_mode"
 
-class ThemeMode(private val dataStore: DataStore<Preferences>) {
-
-    private object PreferencesKeys {
-        val DARK_MODE_ENABLED = booleanPreferencesKey("dark_mode_enabled")
-    }
+class ThemeMode(private val themeDataStore: DataStore<Preferences>) {
 
     suspend fun saveDarkModeEnabled(enabled: Boolean) {
-        dataStore.edit { preferences ->
-            preferences[PreferencesKeys.DARK_MODE_ENABLED] = enabled
+        themeDataStore.edit { preferences ->
+            preferences[DARK_MODE_ENABLED] = enabled
         }
     }
 
-    val darkModeEnabledFlow: Flow<Boolean> = dataStore.data
+    val darkModeEnabledFlow: Flow<Boolean> = themeDataStore.data
         .catch { exception ->
             if (exception is IOException) {
                 emit(emptyPreferences())
@@ -36,8 +32,13 @@ class ThemeMode(private val dataStore: DataStore<Preferences>) {
             }
         }
         .map { preferences ->
-            preferences[PreferencesKeys.DARK_MODE_ENABLED] ?: false
+            preferences[DARK_MODE_ENABLED] ?: false
         }
+
+    companion object PreferencesKeys {
+        val DARK_MODE_ENABLED = booleanPreferencesKey("dark_mode_enabled")
+    }
+
 }
 
 val Context.themeModeDataStore: DataStore<Preferences> by preferencesDataStore(

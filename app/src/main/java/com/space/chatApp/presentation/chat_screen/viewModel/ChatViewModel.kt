@@ -3,7 +3,6 @@ package com.space.chatApp.presentation.chat_screen.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.space.chatApp.common.extensions.getTimeInMills
-import com.space.chatApp.data.mapper.toUiModel
 import com.space.chatApp.domain.model.MessageDomainModel
 import com.space.chatApp.domain.repository.ChatRepository
 import com.space.chatApp.presentation.chat_screen.mapper.MessageDomainToUIMapper

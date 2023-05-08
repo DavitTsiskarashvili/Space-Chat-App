@@ -7,11 +7,13 @@ import com.space.chatApp.presentation.chat_screen.model.MessageUIModel
 
 class MessageDomainToUIMapper : Mapper<MessageDomainModel, MessageUIModel> {
     override fun invoke(model: MessageDomainModel): MessageUIModel =
-        MessageUIModel(
-            id = model.id,
-            sender = model.sender,
-            message = model.message,
-            time = model.time?.dateFormat(),
-            isNetworkConnection = model.isNetworkConnection
-        )
+        with(model) {
+            MessageUIModel(
+                id = id,
+                sender = sender,
+                message = message,
+                time = time?.dateFormat(),
+                isNetworkConnection = isNetworkConnection
+            )
+        }
 }

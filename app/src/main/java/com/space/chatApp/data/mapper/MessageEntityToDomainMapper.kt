@@ -6,11 +6,13 @@ import com.space.chatApp.domain.model.MessageDomainModel
 
 class MessageEntityToDomainMapper : Mapper<MessageEntity, MessageDomainModel> {
     override fun invoke(model: MessageEntity): MessageDomainModel =
-        MessageDomainModel(
-            id = model.id,
-            sender = model.sender,
-            message = model.message,
-            time = model.time,
-            isNetworkConnection = model.isNetworkConnection
-        )
+        with(model) {
+            MessageDomainModel(
+                id = id,
+                sender = sender,
+                message = message,
+                time = time,
+                isNetworkConnection = isNetworkConnection
+            )
+        }
 }
