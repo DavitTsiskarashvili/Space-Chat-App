@@ -21,6 +21,5 @@ private fun provideDataStore(context: Context): DataStore<Preferences> {
 
 val dataStoreModule = module {
     single { provideDataStore(get()) }
-    single<ThemeRepository> { ThemeRepositoryImpl(ThemeMode(get())) }
 
 }

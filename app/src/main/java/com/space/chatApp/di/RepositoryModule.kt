@@ -10,5 +10,5 @@ import org.koin.dsl.module
 val repositoryModule = module {
     single<ChatRepository> { ChatRepositoryImpl(get(), get(), get()) }
 
-    single<ThemeRepository> { ThemeRepositoryImpl(get()) }
+    single<ThemeRepository> { ThemeRepositoryImpl(ThemeMode(get())) }
 }
