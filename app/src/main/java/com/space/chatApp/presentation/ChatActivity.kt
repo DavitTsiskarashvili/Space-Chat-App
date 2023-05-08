@@ -3,8 +3,8 @@ package com.space.chatApp.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.space.chat.R
 import com.space.chat.databinding.ActivityMainBinding
+import com.space.chatApp.domain.model.UserType
 import com.space.chatApp.presentation.chat_screen.ui.ChatFragment
 
 class ChatActivity : AppCompatActivity() {
@@ -23,8 +23,8 @@ class ChatActivity : AppCompatActivity() {
 
     private fun fragmentSetup() {
         supportFragmentManager.beginTransaction().apply {
-            add(R.id.topFragment, ChatFragment())
-            add(R.id.bottomFragment, ChatFragment())
+            replace(binding.topFragment.id, ChatFragment(), UserType.FIRST_USER_ID)
+            replace(binding.bottomFragment.id, ChatFragment(), UserType.SECOND_USER_ID)
         }.commit()
     }
 

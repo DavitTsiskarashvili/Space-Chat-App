@@ -3,7 +3,6 @@ package com.space.chatApp.presentation.chat_screen.ui
 import androidx.lifecycle.lifecycleScope
 import com.space.chat.databinding.FragmentChatBinding
 import com.space.chatApp.common.extensions.isNetworkAvailable
-import com.space.chatApp.domain.model.UserType
 import com.space.chatApp.presentation.base.BaseFragment
 import com.space.chatApp.presentation.base.Inflater
 import com.space.chatApp.presentation.chat_screen.adapter.ChatAdapter
@@ -23,7 +22,11 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
 
 
     private val adapter by lazy {
-        ChatAdapter(requireContext())
+        ChatAdapter(listener, requireContext())
+    }
+
+    override fun userId(): String {
+        return tag.toString()
     }
 
     override fun onBind(viewModel: ChatViewModel) {
@@ -37,31 +40,33 @@ class ChatFragment() : BaseFragment<FragmentChatBinding, ChatViewModel>() {
                 } else {
                     adapter.networkType(ChatAdapter.NetworkConnection.ERROR)
                 }
+                binding.messageEditText.text?.clear()
             }
-            binding.messageEditText.text?.clear()
         }
     }
 
     private fun initRecycler(viewModel: ChatViewModel) {
         binding.chatRecyclerView.adapter = adapter
-        showMessages(viewModel)
+        getAllMessages(viewModel)
     }
 
     private fun sendMessage(viewModel: ChatViewModel) {
         viewModel.sendMessage(
-            binding.messageEditText.text.toString(), UserType.valueOf(tag.toString())
+            binding.messageEditText.text.toString(), tag.toString()
         )
     }
 
-    private fun showMessages(viewModel: ChatViewModel) {
+    private fun getAllMessages(viewModel: ChatViewModel) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.messages
-            viewModel.showMessages().collect {
+            viewModel.getAllMessages().collect {
                 adapter.submitList(it)
-                binding.chatRecyclerView.scrollToPosition(adapter.itemCount - 0)
+                binding.chatRecyclerView.scrollToPosition(adapter.itemCount - 1)
             }
         }
     }
+
+
 
 //    private fun showErrorMessage(){
 //        binding.tvMessage.setTextColor(resources.getColor(R.color.error_text))

@@ -1,6 +1,6 @@
 package com.space.chatApp.domain.model
 
-enum class UserType {
-    Sender,
-    Receiver
+object UserType {
+    const val FIRST_USER_ID = "FirstUser"
+    const val SECOND_USER_ID = "SecondUser"
 }
