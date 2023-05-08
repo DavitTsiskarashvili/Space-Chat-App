@@ -22,7 +22,11 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        fragmentSetup()
+
+        if (savedInstanceState == null){
+            fragmentSetup()
+        }
+
         changeThemeModes()
 
     }
