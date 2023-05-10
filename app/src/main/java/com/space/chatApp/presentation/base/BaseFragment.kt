@@ -10,22 +10,15 @@ import androidx.viewbinding.ViewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModelForClass
 import kotlin.reflect.KClass
 
-typealias Inflater<T> = (inflater: LayoutInflater, view: ViewGroup?, attach: Boolean) -> T
-
 abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>() : Fragment() {
 
     abstract val viewModelClass: KClass<VM>
     private val viewModel: VM by viewModelForClass(clazz = viewModelClass)
 
-    private var _binding: VB? = null
-    val binding get() = _binding!!
+    protected abstract val layout: Int
 
-    protected val userId get() = tag.toString()
-    protected val listener = object : AdapterListener {
-        override fun getUserId(): String = userId
-    }
+    abstract fun userID(): String
 
-    abstract fun inflate(): Inflater<VB>
     abstract fun onBind(viewModel: VM)
 
     override fun onCreateView(
@@ -33,8 +26,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = this.inflate().invoke(inflater, container, false)
-        return binding.root
+        return inflater.inflate(layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,8 +34,4 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>() : Fragment() {
         onBind(viewModel)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
 }
