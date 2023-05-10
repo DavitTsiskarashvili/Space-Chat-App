@@ -21,6 +21,6 @@ On the home screen user can see:
 - change theme mode from light to dark and vice versa
 
 
-<img src="https://github.com/DavitTsiskarashvili/Space-Chat-App/assets/99031977/4f5880b8-e376-4c13-bbad-04d74148edd3" width"200"> | <img src="https://github.com/DavitTsiskarashvili/Space-Chat-App/assets/99031977/9cf41ea6-93dc-4324-b0ca-82224b96948d" width="200"
-                                                                                                                                         
-<img src="https://github.com/DavitTsiskarashvili/Space-Chat-App/assets/99031977/de265bf4-ed8f-4a30-89fd-8014aff7fed4 width"200"> | <img src="https://github.com/DavitTsiskarashvili/Space-Chat-App/assets/99031977/d7bbdd53-2a53-420d-a6dc-43a38c314f83 width"200">
+<img src="https://github.com/DavitTsiskarashvili/Space-Chat-App/assets/99031977/4f5880b8-e376-4c13-bbad-04d74148edd3.jpg" width="200"> | <img src="https://github.com/DavitTsiskarashvili/Space-Chat-App/assets/99031977/9cf41ea6-93dc-4324-b0ca-82224b96948d.jpg" width="200">
+                                                                                                                                  
+<img src="https://github.com/DavitTsiskarashvili/Space-Chat-App/assets/99031977/de265bf4-ed8f-4a30-89fd-8014aff7fed4" width="400"> | <img src="https://github.com/DavitTsiskarashvili/Space-Chat-App/assets/99031977/d7bbdd53-2a53-420d-a6dc-43a38c314f83" width="400">
