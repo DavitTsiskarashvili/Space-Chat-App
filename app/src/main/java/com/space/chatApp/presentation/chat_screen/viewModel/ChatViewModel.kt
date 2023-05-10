@@ -30,24 +30,24 @@ class ChatViewModel(
 
     private fun provideMessageModel(
         messageInput: String,
-        tag: String,
+        userID: String,
         isNetworkConnection: Boolean
     ) =
         MessageDomainModel(
-            sender = tag,
+            sender = userID,
             message = messageInput,
             time = getTimeInMills(),
             isNetworkConnection = isNetworkConnection
         )
 
-    fun sendMessage(messageInput: String, tag: String, isNetworkConnection: Boolean) {
+    fun sendMessage(messageInput: String, userID: String, isNetworkConnection: Boolean) {
         if (messageInput.isNotEmpty()) {
             viewModelScope.launch {
-                _messages.emit(provideMessageModel(messageInput, tag, isNetworkConnection))
+                _messages.emit(provideMessageModel(messageInput, userID, isNetworkConnection))
                 insertMessages(
                     messageModel = provideMessageModel(
                         messageInput,
-                        tag,
+                        userID,
                         isNetworkConnection
                     )
                 )

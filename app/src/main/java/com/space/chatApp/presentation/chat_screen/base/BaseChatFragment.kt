@@ -12,8 +12,8 @@ import com.space.chatApp.presentation.chat_screen.viewModel.ChatViewModel
 import kotlinx.coroutines.launch
 import kotlin.reflect.KClass
 
-// Base Chat Fragment which handles all the logic for all chat fragments
-open class BaseChatFragment : BaseFragment<FragmentChatBinding, ChatViewModel>() {
+// Base Chat Fragment which handles all the logic for all possible chat fragments
+open class BaseChatFragment : BaseFragment<ChatViewModel>() {
 
     private val binding by viewBinding(FragmentChatBinding::bind)
 
@@ -31,7 +31,7 @@ open class BaseChatFragment : BaseFragment<FragmentChatBinding, ChatViewModel>()
     override val viewModelClass: KClass<ChatViewModel>
         get() = ChatViewModel::class
 
-    override fun userID(): String = userID()
+    open fun userID(): String = userID()
 
     override fun onBind(viewModel: ChatViewModel) {
         with(viewModel) {
