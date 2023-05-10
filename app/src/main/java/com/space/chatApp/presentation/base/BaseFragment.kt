@@ -10,6 +10,8 @@ import androidx.viewbinding.ViewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModelForClass
 import kotlin.reflect.KClass
 
+
+// Base Fragment of all possible child Fragments
 abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>() : Fragment() {
 
     abstract val viewModelClass: KClass<VM>

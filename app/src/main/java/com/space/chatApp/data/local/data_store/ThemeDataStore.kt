@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
+// Data Store class which handles users preference of light and dark mode
 private const val THEME_MODE_FILE_NAME = "theme_mode"
 
 class ThemeMode(private val themeDataStore: DataStore<Preferences>) {

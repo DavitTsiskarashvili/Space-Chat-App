@@ -32,8 +32,8 @@ class ChatActivity : AppCompatActivity() {
 
     private fun fragmentSetup() {
         supportFragmentManager.beginTransaction().apply {
-            binding.firstFragment?.let { replace(it.id, ChatFragmentFirst()) }
-            binding.secondFragment?.let { replace(it.id, ChatFragmentSecond()) }
+            replace(binding.firstFragment.id, ChatFragmentFirst())
+            replace(binding.secondFragment.id, ChatFragmentSecond())
         }.commit()
     }
 

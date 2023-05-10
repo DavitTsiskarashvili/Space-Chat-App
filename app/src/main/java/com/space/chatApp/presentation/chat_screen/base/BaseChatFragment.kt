@@ -12,6 +12,7 @@ import com.space.chatApp.presentation.chat_screen.viewModel.ChatViewModel
 import kotlinx.coroutines.launch
 import kotlin.reflect.KClass
 
+// Base Chat Fragment which handles all the logic for all chat fragments
 open class BaseChatFragment : BaseFragment<FragmentChatBinding, ChatViewModel>() {
 
     private val binding by viewBinding(FragmentChatBinding::bind)

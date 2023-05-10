@@ -13,6 +13,7 @@ import com.space.chatApp.presentation.base.AdapterListener
 import com.space.chatApp.presentation.chat_screen.model.MessageUIModel
 import com.space.chatApp.presentation.utils.DiffUtilCallback
 
+// Recycler View Adapter for chat screen
 class ChatAdapter(private val listener: AdapterListener) :
     ListAdapter<MessageUIModel, ChatAdapter.ChatViewHolder>(DiffUtilCallback()) {
 
