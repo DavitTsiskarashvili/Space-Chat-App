@@ -11,4 +11,5 @@ data class MessageEntity(
     val sender: String?,
     val message: String?,
     val time: Long?,
+    val isNetworkConnection: Boolean = true
 )

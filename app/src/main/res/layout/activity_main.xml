@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.space.chatApp.presentation.ChatActivity" >
+    tools:context="com.space.chatApp.presentation.chat_activity.activity.ChatActivity" >
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/themeSwitch"
@@ -17,7 +17,7 @@
         app:track="@drawable/ic_track" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/topFragment"
+        android:id="@+id/firstFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"  />
@@ -28,7 +28,7 @@
         app:dividerColor="@color/divider_primary" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bottomFragment"
+        android:id="@+id/secondFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />

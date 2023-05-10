@@ -1,9 +1,12 @@
 package com.space.chatApp.common.extensions
 
 import android.content.Context
+import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.widget.EditText
+import com.space.chat.R
 
 fun Context.isNetworkAvailable(): Boolean {
     val connectivityManager =
