@@ -5,7 +5,7 @@ import java.util.*
 
 fun Long.dateFormat(): String {
     val georgianLocale = Locale("ka", "GE")
-    val dateFormat = SimpleDateFormat("MMM d,Z HH:mm", georgianLocale)
+    val dateFormat = SimpleDateFormat("MMM d, HH:mm", georgianLocale)
     val calendar = Calendar.getInstance()
     calendar.timeInMillis = this
     return dateFormat.format(calendar.time)

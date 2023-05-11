@@ -13,7 +13,7 @@ class MessageDomainToUIMapper : Mapper<MessageDomainModel, MessageUIModel> {
                 sender = sender,
                 message = message,
                 time = time?.dateFormat(),
-                isNetworkConnection = isNetworkConnection
+                isOnline = isNetworkConnection
             )
         }
 }

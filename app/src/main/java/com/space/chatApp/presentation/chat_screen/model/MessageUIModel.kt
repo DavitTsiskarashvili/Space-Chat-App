@@ -5,5 +5,5 @@ data class MessageUIModel(
     val message: String?,
     val time: String?,
     val sender: String?,
-    val isNetworkConnection: Boolean = true
+    val isOnline: Boolean = true
 )

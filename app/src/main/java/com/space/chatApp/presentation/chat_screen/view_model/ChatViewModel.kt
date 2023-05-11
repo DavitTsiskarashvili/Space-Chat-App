@@ -1,4 +1,4 @@
-package com.space.chatApp.presentation.chat_screen.viewModel
+package com.space.chatApp.presentation.chat_screen.view_model
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,9 +17,6 @@ class ChatViewModel(
     private val chatRepository: ChatRepository,
     private val domainToUIMapper: MessageDomainToUIMapper
 ) : ViewModel() {
-
-    private var _messages = MutableSharedFlow<MessageDomainModel?>()
-    val messages get() = _messages.asSharedFlow()
 
     fun getAllMessages(): Flow<List<MessageUIModel>> =
         chatRepository.showMessages().map { messageModel ->
@@ -43,7 +40,6 @@ class ChatViewModel(
     fun sendMessage(messageInput: String, userID: String, isNetworkConnection: Boolean) {
         if (messageInput.isNotEmpty()) {
             viewModelScope.launch {
-                _messages.emit(provideMessageModel(messageInput, userID, isNetworkConnection))
                 insertMessages(
                     messageModel = provideMessageModel(
                         messageInput,
@@ -59,9 +55,9 @@ class ChatViewModel(
         chatRepository.insertMessage(messageModel)
     }
 
-    fun filterMessagesWithoutInternet(message: List<MessageUIModel>, userID: String): List<MessageUIModel> {
+    fun showMessagesWithInternetConnection(message: List<MessageUIModel>, userID: String): List<MessageUIModel> {
         return message.filter {
-            it.sender == userID || it.isNetworkConnection
+            it.sender == userID || it.isOnline
         }
     }
 

@@ -8,7 +8,7 @@ import com.space.chatApp.common.extensions.viewBinding
 import com.space.chatApp.presentation.base.AdapterListener
 import com.space.chatApp.presentation.base.BaseFragment
 import com.space.chatApp.presentation.chat_screen.adapter.ChatAdapter
-import com.space.chatApp.presentation.chat_screen.viewModel.ChatViewModel
+import com.space.chatApp.presentation.chat_screen.view_model.ChatViewModel
 import kotlinx.coroutines.launch
 import kotlin.reflect.KClass
 
@@ -47,9 +47,8 @@ open class BaseChatFragment : BaseFragment<ChatViewModel>() {
 
     private fun getAllMessages(viewModel: ChatViewModel) {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.messages
             viewModel.getAllMessages().collect {
-                adapter.submitList(viewModel.filterMessagesWithoutInternet(it, userID()))
+                adapter.submitList(viewModel.showMessagesWithInternetConnection(it, userID()))
             }
         }
     }

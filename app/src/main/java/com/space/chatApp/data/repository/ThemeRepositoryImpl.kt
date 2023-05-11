@@ -1,4 +1,4 @@
-package com.space.chatApp.data.repositoryImpl
+package com.space.chatApp.data.repository
 
 import com.space.chatApp.data.local.data_store.ThemeMode
 import com.space.chatApp.domain.repository.ThemeRepository
