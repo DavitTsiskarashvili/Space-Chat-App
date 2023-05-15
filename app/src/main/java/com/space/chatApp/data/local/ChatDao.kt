@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ChatDao {
     @Query("SELECT * FROM message_table")
-    fun getAll(): Flow<List<MessageEntity>>
+    fun getAllMessages(): Flow<List<MessageEntity>>
 
     @Insert
     suspend fun insertMessage(message: MessageEntity)

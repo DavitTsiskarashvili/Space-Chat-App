@@ -1,4 +1,4 @@
-package com.space.chatApp.data.repositoryImpl
+package com.space.chatApp.data.repository
 
 import com.space.chatApp.data.local.ChatDao
 import com.space.chatApp.data.mapper.MessageDomainToEntityMapper
@@ -12,7 +12,7 @@ class ChatRepositoryImpl(
     private val domainToEntityMapper: MessageDomainToEntityMapper,
     private val entityToDomainMapper: MessageEntityToDomainMapper
 ): ChatRepository {
-    override fun showMessages() = dao.getAll().map { chat ->
+    override fun showMessages() = dao.getAllMessages().map { chat ->
         chat.map { entity ->
             entityToDomainMapper(entity)
         }

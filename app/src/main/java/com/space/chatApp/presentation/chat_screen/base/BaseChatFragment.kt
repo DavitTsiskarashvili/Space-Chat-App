@@ -8,12 +8,12 @@ import com.space.chatApp.common.extensions.viewBinding
 import com.space.chatApp.presentation.base.AdapterListener
 import com.space.chatApp.presentation.base.BaseFragment
 import com.space.chatApp.presentation.chat_screen.adapter.ChatAdapter
-import com.space.chatApp.presentation.chat_screen.viewModel.ChatViewModel
+import com.space.chatApp.presentation.chat_screen.view_model.ChatViewModel
 import kotlinx.coroutines.launch
 import kotlin.reflect.KClass
 
-// Base Chat Fragment which handles all the logic for all chat fragments
-open class BaseChatFragment : BaseFragment<FragmentChatBinding, ChatViewModel>() {
+// Base Chat Fragment which handles all the logic for all possible chat fragments
+open class BaseChatFragment : BaseFragment<ChatViewModel>() {
 
     private val binding by viewBinding(FragmentChatBinding::bind)
 
@@ -31,7 +31,7 @@ open class BaseChatFragment : BaseFragment<FragmentChatBinding, ChatViewModel>()
     override val viewModelClass: KClass<ChatViewModel>
         get() = ChatViewModel::class
 
-    override fun userID(): String = userID()
+    open fun userID(): String = userID()
 
     override fun onBind(viewModel: ChatViewModel) {
         with(viewModel) {
@@ -47,9 +47,8 @@ open class BaseChatFragment : BaseFragment<FragmentChatBinding, ChatViewModel>()
 
     private fun getAllMessages(viewModel: ChatViewModel) {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.messages
             viewModel.getAllMessages().collect {
-                adapter.submitList(viewModel.filterMessagesWithoutInternet(it, userID()))
+                adapter.submitList(viewModel.showMessagesWithInternetConnection(it, userID()))
             }
         }
     }

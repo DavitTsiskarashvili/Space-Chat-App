@@ -10,16 +10,13 @@ import androidx.viewbinding.ViewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModelForClass
 import kotlin.reflect.KClass
 
-
 // Base Fragment of all possible child Fragments
-abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>() : Fragment() {
+abstract class BaseFragment<VM : ViewModel>() : Fragment() {
 
     abstract val viewModelClass: KClass<VM>
     private val viewModel: VM by viewModelForClass(clazz = viewModelClass)
 
     protected abstract val layout: Int
-
-    abstract fun userID(): String
 
     abstract fun onBind(viewModel: VM)
 

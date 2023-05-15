@@ -41,7 +41,7 @@ class ChatAdapter(private val listener: AdapterListener) :
                 if (listener.getUserId() == message.sender) {
                     root.layoutDirection = View.LAYOUT_DIRECTION_RTL
                     messageColorForSender()
-                    if (message.isNetworkConnection) {
+                    if (message.isOnline) {
                         textColor()
                     } else {
                         textColorWithoutInternet()

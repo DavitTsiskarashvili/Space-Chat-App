@@ -4,10 +4,6 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.space.chatApp.data.local.data_store.ThemeMode
-import com.space.chatApp.data.local.data_store.themeModeDataStore
-import com.space.chatApp.data.repositoryImpl.ThemeRepositoryImpl
-import com.space.chatApp.domain.repository.ThemeRepository
 import org.koin.dsl.module
 
 
